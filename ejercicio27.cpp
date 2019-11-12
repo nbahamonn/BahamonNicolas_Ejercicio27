@@ -3,14 +3,14 @@
 
 using namespace std;
 
-void Explicito(int i, float f, float dx, float w, string archivo);
-void Implicito(int i, float f, float dx, float w, string archivo);
+void Explicito(float i, float f, float dx, float w, string archivo);
+void Implicito(float i, float f, float dx, float w, string archivo);
     
 int main(){
     
     float w = 0.1;
     float f = 4/w;
-    int i = 0;
+    float i = 0;
     float dx1 = 0.1/w;
     float dx2 = 0.01/w;
     float dx3 = 1/w;
@@ -24,11 +24,11 @@ int main(){
     return 0;
 }
 
-void Explicito(int i, float f, float dx, float w, string archivo){
+void Explicito(float i, float f, float dx, float w, string archivo){
     ofstream outfile;
     outfile.open(archivo);
     
-    float y = 1;
+    float y = 1.0;
  
     for (i; i < f; i+=dx){
         y = y - dx * w * y;
@@ -37,12 +37,12 @@ void Explicito(int i, float f, float dx, float w, string archivo){
   outfile.close(); 
 }
 
-void Implicito(int i, float f, float dx, float w, string archivo){
+void Implicito(float i, float f, float dx, float w, string archivo){
     
     ofstream outfile;
     outfile.open(archivo);
     
-    float y = 1;
+    float y = 1.0;
   
     for (i; i < f; i+=dx){
         y = y / (1 + dx * w);
